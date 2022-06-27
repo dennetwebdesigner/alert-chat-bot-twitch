@@ -1722,6 +1722,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"outro@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "outro@workspace:."
+  dependencies:
+    cors: ^2.8.5
+    express: ^4.18.1
+    nodemon: ^2.0.18
+    socket.io: ^4.5.1
+    sucrase: ^3.21.1
+    tmi.js: ^1.8.5
+  languageName: unknown
+  linkType: soft
+
 "p-cancelable@npm:^1.0.0":
   version: 1.1.0
   resolution: "p-cancelable@npm:1.1.0"
@@ -2084,13 +2097,13 @@ __metadata:
   linkType: hard
 
 "socket.io-parser@npm:~4.0.4":
-  version: 4.0.4
-  resolution: "socket.io-parser@npm:4.0.4"
+  version: 4.0.5
+  resolution: "socket.io-parser@npm:4.0.5"
   dependencies:
     "@types/component-emitter": ^1.2.10
     component-emitter: ~1.3.0
     debug: ~4.3.1
-  checksum: c173b4f3747c51e2af802eca35212f4dcfa8fe55d7fdc07b9a01da1ecc956791c1bf6591e307952548eab69e6500bcfe27cea8aff1386b860d9bb51f98e4fafb
+  checksum: 8b60cf3abb9c3571f90cf894d40f41459ab007e6cee7ca8ee28ab107d76ded4a72ca5c4e5dcb82d996d4f78b3689dd3eb36ba0b39a66e25e2e9a9afa276c81c5
   languageName: node
   linkType: hard
 
@@ -2182,8 +2195,8 @@ __metadata:
   linkType: hard
 
 "sucrase@npm:^3.21.1":
-  version: 3.21.1
-  resolution: "sucrase@npm:3.21.1"
+  version: 3.22.0
+  resolution: "sucrase@npm:3.22.0"
   dependencies:
     commander: ^4.0.0
     glob: 7.1.6
@@ -2194,7 +2207,7 @@ __metadata:
   bin:
     sucrase: bin/sucrase
     sucrase-node: bin/sucrase-node
-  checksum: 2348caba9174fa6c13e7c320de8f2040bd8d9e1c7816ba54206e2455fec2f76ffcff0919ae44099e236ada0580b3daf171093388d35e1bf7e67abc2884aee736
+  checksum: 60fff64093664713ef466c2eff41498b4f69e0dfbcd10bb9b372c5d72c5b6fa21a35409ecb638cfb393843c48bbaaf4b454ce96ddf02ad8cdb1d57a98eb06e48
   languageName: node
   linkType: hard
 
@@ -2305,19 +2318,6 @@ __metadata:
   checksum: 20c29189c2dd6067a8775e07823ddf8d59a33e2ffc47a1bd59a5cb28bb0121a2969a816d5e77eda2ed85b18171aa5d1c4005a6b88ae8499ec7cc49f78571cb5e
   languageName: node
   linkType: hard
-
-"twitchbot@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "twitchbot@workspace:."
-  dependencies:
-    cors: ^2.8.5
-    express: ^4.18.1
-    nodemon: ^2.0.18
-    socket.io: ^4.5.1
-    sucrase: ^3.21.1
-    tmi.js: ^1.8.5
-  languageName: unknown
-  linkType: soft
 
 "type-fest@npm:^0.20.2":
   version: 0.20.2

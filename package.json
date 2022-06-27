@@ -1,5 +1,5 @@
 {
-  "name": "twitchbot",
+  "name": "outro",
   "packageManager": "yarn@3.2.1",
   "license": "MIT",
   "scripts": {
