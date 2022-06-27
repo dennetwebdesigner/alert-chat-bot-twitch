@@ -1,10 +1,11 @@
 {
   "name": "twitchbot",
   "packageManager": "yarn@3.2.1",
+  "license": "MIT",
   "scripts": {
     "dev": "nodemon ./src/server.js",
     "start": "build ./dist/server.js",
-    "build": "sucrase ./src -d ./build --transforms imports"
+    "build": "sucrase ./src -d ./dist --transforms imports"
   },
   "dependencies": {
     "cors": "^2.8.5",
