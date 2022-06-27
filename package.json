@@ -1,0 +1,17 @@
+{
+  "name": "twitchbot",
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "dev": "nodemon ./src/server.js",
+    "start": "build ./dist/server.js",
+    "build": "sucrase ./src -d ./build --transforms imports"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.18",
+    "socket.io": "^4.5.1",
+    "sucrase": "^3.21.1",
+    "tmi.js": "^1.8.5"
+  }
+}
