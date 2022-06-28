@@ -34,6 +34,7 @@ const btnSet = qs("#btnSetChannel");
 const channel = qs("#channel");
 // song alert
 const sound = qs("audio");
+sound.volume = 0.8;
 // all messages element HTML
 const logMsg = qs("#messages");
 // all messages container
@@ -42,12 +43,46 @@ const logMsgContainer = qs("#container-messages");
 const togglekey = qs(".toggle-type-key");
 // set setTimeout
 const inputTimeout = qs("#timeout");
-let TimeoutValue = !inputTimeout.value ? 10 : inputTimeout.value;
+// get modal username
+const modalSetName = qs(".modal-set-name");
+// get input username localAuth
+const username = qs("#username");
+// get input check-this-my-channel
+const thisMyChannel = qs("#check-this-my-channel");
+// get btn save username
+const btnSaveAuthLoc = qs("#save-my-tag-channel");
 
+// set timeout value
+let TimeoutValue = !inputTimeout.value ? 10 : inputTimeout.value;
 // id socket not usabled
 let myId;
 // verify alert timer
 let alertActive = false;
+
+// when validate tag channel name
+const eventHandleSetChannel = (myChannel = null) => {
+  btnSet.disabled = true;
+  channel.disabled = true;
+  btnResetChannel.removeAttribute("disabled");
+  channel.value = myChannel ? myChannel : channel.value;
+
+  socket.emit("channel-name", {
+    channel: channel.value,
+  });
+
+  logMsg.innerHTML = `       
+      <h2>Mensagens do chat Twitch: ${channel.value} </h2>        
+  `;
+};
+
+// case already set tag name channel
+if (
+  window.localStorage.getItem("userTag") &&
+  window.localStorage.getItem("userTag") != ""
+) {
+  modalSetName.style.display = "none";
+  eventHandleSetChannel(window.localStorage.getItem("userTag"));
+}
 
 // change dinamic time the timeout alert
 inputTimeout.addEventListener("change", (e) => {
@@ -61,17 +96,8 @@ setChannel.addEventListener("submit", (e) => {
     return;
   }
 
-  btnSet.disabled = true;
-  channel.disabled = true;
-  btnResetChannel.disabled = false;
-
-  socket.emit("channel-name", {
-    channel: channel.value,
-  });
-
-  logMsg.innerHTML = `       
-      <h2>Mensagens do chat Twitch: ${channel.value} </h2>        
-  `;
+  eventHandleSetChannel();
+  window.localStorage.setItem("userTag", channel.value);
 });
 
 // clear input and messages, set default
@@ -81,6 +107,7 @@ btnResetChannel.addEventListener("click", () => {
   btnSet.disabled = false;
   channel.value = "";
   socket.emit("clear-channel", {});
+  window.localStorage.removeItem("userTag");
   logMsg.innerHTML = `       
       <h2>Mensagens do chat Twitch </h2>        
   `;

@@ -5,7 +5,7 @@ socket.on("connection-me", (data) => {
 
 // when new messages arrive
 socket.on("new-msg-tw", (data) => {
-  if (!alertActive) {
+  if (!alertActive && data.name != window.localStorage.getItem("userTag")) {
     sound.play();
     alertActive = true;
     setTimeout(() => {

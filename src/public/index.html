@@ -39,9 +39,22 @@
 
   <main id="messages">
     <h2>Mensagens do chat Twitch </h2>
-    <section id="container-messages"> </section>
-
+    <section id="container-messages"></section>
   </main>
+
+  <section class="modal-set-name">
+    <article>
+      <div class="header-set-name">
+        <h3 class="title-set-name">Para não receber alertas seus</h3>
+      </div>
+      <input type="text" id="username" placeholder="tag do seu canal da twitch" autocomplete="off">
+      <div class="verify-my-channel">
+        <input type="checkbox" id="check-this-my-channel">
+        <p>assistindo canal que não é o meu</p>
+      </div>
+      <button id="save-my-tag-channel">Continuar</button>
+    </article>
+  </section>
 
 
   <script src="/socket.io/socket.io.js"></script>
@@ -50,6 +63,7 @@
   <script src="./assets/javascript/socket.js">
   </script>
   <script src="./assets/javascript/style.js"></script>
+  <script src="./assets/javascript/tempAuth.js"></script>
 </body>
 
 </html>
