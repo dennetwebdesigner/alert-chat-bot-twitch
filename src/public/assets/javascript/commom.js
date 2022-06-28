@@ -1,3 +1,7 @@
+alert(
+  "por favor aperte no play do audio 1 vez para poder funcionar corretamente"
+);
+
 //get url current host
 const url_socket = `${location.protocol}//${location.host}`;
 
@@ -34,7 +38,8 @@ const btnSet = qs("#btnSetChannel");
 const channel = qs("#channel");
 // song alert
 const sound = qs("audio");
-sound.volume = 0.8;
+sound.volume = 0.5;
+
 // all messages element HTML
 const logMsg = qs("#messages");
 // all messages container
