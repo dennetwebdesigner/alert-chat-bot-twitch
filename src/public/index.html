@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat Twitch Alert</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -27,91 +27,86 @@
         <div class="toggle-type-key"></div>
       </div>
     </fieldset>
+    <fieldset>
+      <label for="">tempo entre alarmes</label>
+      <input type="number" id="timeout" placeholder="1 = 1 segundo">
+    </fieldset>
   </form>
 
   <audio controls>
-    <source src="./alert.mp3" type="audio/mp3">
+    <source src="./assets/songs/alert.mp3" type="audio/mp3">
   </audio>
 
   <main id="messages">
     <h2>Mensagens do chat Twitch </h2>
+    <section id="container-messages">
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+      <h1 class="message">test</h1>
+    </section>
 
   </main>
 
 
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    const url_socket = `${location.protocol}//${location.host}`
-    const socket = io(url_socket)
-    const qs = (tag) => document.querySelector(tag)
-
-    const setChannel = qs('#set-channel')
-    const btnResetChannel = qs('#reset')
-    const btnSet = qs('#btnSetChannel')
-    const channel = qs('#channel')
-    const sound = qs('audio')
-    let myId
-    const logMsg = qs('#messages')
-    let alertActive = false
-
-
-
-    btnResetChannel.disabled = true
-
-    setChannel.addEventListener('submit', (e) => {
-      e.preventDefault()
-      if (channel.value == '') {
-        alert('o campo de canal não pode ser vazio')
-        return
-      }
-
-
-      btnSet.disabled = true
-      channel.disabled = true
-      btnResetChannel.disabled = false
-
-      socket.emit('channel-name', {
-        channel: channel.value
-      })
-
-      logMsg.innerHTML = `       
-          <h2>Mensagens do chat Twitch: ${channel.value} </h2>        
-      `
-
-    })
-
-    btnResetChannel.addEventListener('click', () => {
-      btnResetChannel.disabled = true
-      channel.disabled = false
-      btnSet.disabled = false
-      channel.value = ''
-      socket.emit('clear-channel', {})
-      logMsg.innerHTML = `       
-          <h2>Mensagens do chat Twitch </h2>        
-      `
-    })
+  <script src="./assets/javascript/commom.js">
   </script>
-  <script>
-    socket.on('connection-me', (data => {
-      myId = data.id
-    }))
-
-    socket.on('new-msg-tw', (data) => {
-      if (!alertActive) {
-        sound.play()
-        alertActive = true
-        setTimeout(() => {
-          alertActive = false
-        }, 10000);
-      }
-      logMsg.innerHTML += `
-        <section class='message'>
-          ${data.name}: ${data.message}
-        </section>
-      `
-    })
+  <script src="./assets/javascript/socket.js">
   </script>
-  <script src="./style.js"></script>
+  <script src="./assets/javascript/style.js"></script>
 </body>
 
 </html>
