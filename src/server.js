@@ -15,5 +15,5 @@ const io = socketio(server);
 io.on("connection", websocket);
 
 server.listen(process.env.PORT || 8080, () =>
-  console.log("server run port " + PORT)
+  console.log("server run port " + process.env.PORT || 8080)
 );
